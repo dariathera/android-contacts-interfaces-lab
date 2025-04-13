@@ -35,8 +35,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+import ru.yandex.practicum.contacts.utils.android.OnDebounceListener;
+
 @SuppressLint("UnsafeExperimentalUsageError")
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnDebounceListener {
 
     public static final String SORT_TAG = "SORT_TAG";
     public static final String FILTER_TAG = "FILTER_TAG";
@@ -211,6 +213,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void clearSearch() {
         binding.searchLayout.searchText.setText("");
+        viewModel.search();
+    }
+
+    @Override
+    public void onDebounce() {
         viewModel.search();
     }
 }

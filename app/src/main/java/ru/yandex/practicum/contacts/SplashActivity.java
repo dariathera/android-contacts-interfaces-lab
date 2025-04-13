@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+//import ru.yandex.practicum.contacts.databinding.SplashActivityBinding;
 import ru.yandex.practicum.contacts.databinding.SplashActivityBinding;
 import ru.yandex.practicum.contacts.presentation.main.MainActivity;
 import ru.yandex.practicum.contacts.utils.android.ContextUtils;

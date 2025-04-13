@@ -30,7 +30,9 @@ import ru.yandex.practicum.contacts.presentation.sort.model.SortType;
 import ru.yandex.practicum.contacts.utils.java.ThreadUtils;
 import ru.yandex.practicum.contacts.utils.model.MergedContactUtils;
 
-public class MainViewModel extends AndroidViewModel {
+import ru.yandex.practicum.contacts.utils.android.OnDebounceListener;
+
+public class MainViewModel extends AndroidViewModel implements OnDebounceListener{
 
     private final ContactSourceRepository contactSourceRepository;
     private final ContactRepository contactRepository;
@@ -210,6 +212,11 @@ public class MainViewModel extends AndroidViewModel {
     private void updateUiState() {
         uiStateLiveDate.setValue(uiState.copy());
         uiState.actions.clear();
+    }
+
+    @Override
+    public void onDebounce() {
+        this.search();
     }
 
     public static class UiState {
